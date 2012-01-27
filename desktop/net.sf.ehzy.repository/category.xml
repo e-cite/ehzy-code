@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/net.sf.ehzy.feature_1.0.0.qualifier.jar" id="net.sf.ehzy.feature" version="1.0.0.qualifier">
+      <category name="net.sf.ehzy"/>
+   </feature>
+   <feature url="features/org.openmuc.jsml.feature_1.0.12.jar" id="org.openmuc.jsml.feature" version="1.0.12">
+      <category name="net.sf.ehzy"/>
+   </feature>
+   <category-def name="net.sf.ehzy" label="eHZy"/>
+</site>

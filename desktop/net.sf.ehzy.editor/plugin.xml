@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+  Copyright (c) 2012 Volker Wegert and others.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+    Volker Wegert - initial API and implementation
+-->
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="EHZyEditorAdvisorApplication">
+      <application>
+         <run class="net.sf.ehzy.editor.Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            name="%_UI_Perspective_label"
+            class="net.sf.ehzy.editor.Perspective"
+            id="net.sf.ehzy.editor.Perspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="net.sf.ehzy.editor.EHZyEditorAdvisorOpenCommand"/>
+      <command
+            id="net.sf.ehzy.editor.ImportSMLCommand"
+            name="%ImportSMLCommand.name">
+      </command>
+      <command
+            description="%SendMessageCommand.description"
+            id="net.sf.ehzy.editor.SendMessageCommand"
+            name="%SendMessageCommand.name">
+      </command>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <key
+            commandId="net.sf.ehzy.editor.EHZyEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="%_UI_EHZyEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="EHZyEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="net.sf.ehzy.editor.AboutAction"
+               menubarPath="help/additions"
+               id="net.sf.ehzy.editor.EHZyEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="net.sf.ehzy.editor.EHZyEditorAdvisorOpenCommand"
+               class="net.sf.ehzy.editor.OpenAction"
+               menubarPath="file/additions"
+               id="net.sf.ehzy.editor.EHZyEditorAdvisorOpenAction"/>
+         <action
+               class="net.sf.ehzy.editor.NewAction"
+               id="net.sf.ehzy.model.presentation.ModelActionBarContributorNewAction"
+               label="%_UI_ModelModelWizard_label"
+               menubarPath="file/additions">
+         </action>
+      </actionSet>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="net.sf.ehzy.model.presentation.ModelEditorID"
+            name="%_UI_ModelEditor_label"
+            icon="icons/full/obj16/ModelModelFile.gif"
+            extensions="ehz"
+            class="net.sf.ehzy.editor.ModelEditor"
+            contributorClass="net.sf.ehzy.editor.ModelActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="net.sf.ehzy.editor.ImportSMLHandler"
+            commandId="net.sf.ehzy.editor.ImportSMLCommand">
+      </handler>
+      <handler
+            class="net.sf.ehzy.editor.SendMessageHandler"
+            commandId="net.sf.ehzy.editor.SendMessageCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:file?after=additions">
+         <command
+               commandId="net.sf.ehzy.editor.ImportSMLCommand"
+               id="net.sf.ehzy.editor.menus.ImportSMLCommand"
+               mnemonic="%ImportSMLCommand.mnemonic">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:net.sf.ehzy.model.presentation.ModelEditorID?before=edit">
+         <command
+               commandId="net.sf.ehzy.editor.SendMessageCommand"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="net.sf.ehzy.model.Recipient">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:net.sf.ehzy.editor.PendingNotificationsView">
+         <command
+               commandId="net.sf.ehzy.editor.SendMessageCommand"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="net.sf.ehzy.model.Recipient">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="net.sf.ehzy.editor"
+            name="%ViewCategory.name">
+      </category>
+      <view
+            category="net.sf.ehzy.editor"
+            class="net.sf.ehzy.editor.PendingNotificationsView"
+            icon="icons/PendingNotificationsView.gif"
+            id="net.sf.ehzy.editor.PendingNotificationsView"
+            name="%PendingNotificationsView.name">
+      </view>
+   </extension>
+
+</plugin>

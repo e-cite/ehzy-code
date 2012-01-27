@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="http://ehzy.sf.net/model/1.0" nsPrefix="net.sf.eHZy">
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
+        eType="#//Location" containment="true" eOpposite="#//Location/project"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Location">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="meters" upperBound="-1"
+        eType="#//Meter" containment="true" eOpposite="#//Meter/location" eKeys="#//Meter/deviceID"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" ordered="false"
+        unique="false" lowerBound="1" eType="#//Project" eOpposite="#//Project/locations"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Meter">
+    <eOperations name="getMostRecentReadouts" upperBound="-1" eType="#//Readout">
+      <eParameters name="maxNumber" ordered="false" unique="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceID" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" ordered="false"
+        unique="false" lowerBound="1" eType="#//Location" eOpposite="#//Location/meters"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastReadoutDate" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipients" upperBound="-1"
+        eType="#//Recipient" containment="true" eOpposite="#//Recipient/meter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="readouts" upperBound="-1"
+        eType="#//Readout" containment="true" eOpposite="#//Readout/meter" eKeys="#//Readout/date"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortedReadouts" upperBound="-1"
+        eType="#//Readout" changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Recipient">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salutation" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastMessageDate" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="meter" ordered="false"
+        unique="false" lowerBound="1" eType="#//Meter" eOpposite="#//Meter/recipients"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatedReadoutsAvailable"
+        ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Readout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="meter" ordered="false"
+        unique="false" lowerBound="1" eType="#//Meter" eOpposite="#//Meter/readouts"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageContents" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalConsumption" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+  </eClassifiers>
+</ecore:EPackage>

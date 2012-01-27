@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.sf.ehzy.model/src"
+    editDirectory="/net.sf.ehzy.edit/src" editorDirectory="/net.sf.ehzy.editor.nogen/src"
+    modelPluginID="net.sf.ehzy.model" modelName="EHZy" editPluginClass="net.sf.ehzy.model.provider.EHZyEditPlugin"
+    editorPluginClass="net.sf.ehzy.editor.EHZyEditorPlugin" testSuiteClass="net.sf.ehzy.model.tests.EHZyAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="net.sf.ehzy.edit" editorPluginID="net.sf.ehzy.model.editor.nogen"
+    runtimePlatform="RCP">
+  <foreignModel>eHZy.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="net.sf.ehzy" disposableProviderFactory="true"
+      multipleEditorPages="false" ecorePackage="eHZy.ecore#/">
+    <genClasses ecoreClass="eHZy.ecore#//Project">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eHZy.ecore#//Project/locations"/>
+    </genClasses>
+    <genClasses ecoreClass="eHZy.ecore#//Location">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Location/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eHZy.ecore#//Location/meters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference eHZy.ecore#//Location/project"/>
+    </genClasses>
+    <genClasses ecoreClass="eHZy.ecore#//Meter">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Meter/deviceID"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference eHZy.ecore#//Meter/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Meter/description"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Meter/lastReadoutDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eHZy.ecore#//Meter/recipients"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference eHZy.ecore#//Meter/readouts"/>
+      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
+          ecoreFeature="ecore:EReference eHZy.ecore#//Meter/sortedReadouts"/>
+      <genOperations ecoreOperation="eHZy.ecore#//Meter/getMostRecentReadouts">
+        <genParameters ecoreParameter="eHZy.ecore#//Meter/getMostRecentReadouts/maxNumber"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="eHZy.ecore#//Recipient">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Recipient/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Recipient/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Recipient/salutation"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Recipient/lastMessageDate"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference eHZy.ecore#//Recipient/meter"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Recipient/updatedReadoutsAvailable"/>
+    </genClasses>
+    <genClasses ecoreClass="eHZy.ecore#//Readout">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference eHZy.ecore#//Readout/meter"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Readout/date"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Readout/messageContents"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Readout/totalConsumption"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
