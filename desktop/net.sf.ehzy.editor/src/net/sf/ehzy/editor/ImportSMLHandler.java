@@ -180,10 +180,15 @@ public class ImportSMLHandler extends AbstractHandler {
 					Readout readout = createReadoutObject(msg, getListRes);
 					
 					// check whether a readout object is already present for the date - if it is, remove it
+					List<Readout> readoutsToRemove = new ArrayList<Readout>();
 					for (Readout r: meter.getReadouts()) {
 						if (r.getDate().equals(readout.getDate())) {
-							editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain, r));
+							readoutsToRemove.add(r);
 						}
+					}
+					for (Readout r: readoutsToRemove) {
+						editingDomain.getCommandStack().execute(
+								RemoveCommand.create(editingDomain, meter, ModelPackage.Literals.METER__READOUTS, r));
 					}
 					
 					// add the new readout to the meter object
