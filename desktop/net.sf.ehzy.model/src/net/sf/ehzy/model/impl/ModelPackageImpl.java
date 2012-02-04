@@ -260,6 +260,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMeter_ValueRetentionTime() {
+		return (EAttribute)meterEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRecipient() {
 		return recipientEClass;
 	}
@@ -368,6 +377,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getReadout_Expired() {
+		return (EAttribute)readoutEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -407,6 +425,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(meterEClass, METER__RECIPIENTS);
 		createEReference(meterEClass, METER__READOUTS);
 		createEReference(meterEClass, METER__SORTED_READOUTS);
+		createEAttribute(meterEClass, METER__VALUE_RETENTION_TIME);
 
 		recipientEClass = createEClass(RECIPIENT);
 		createEAttribute(recipientEClass, RECIPIENT__NAME);
@@ -421,6 +440,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(readoutEClass, READOUT__DATE);
 		createEAttribute(readoutEClass, READOUT__MESSAGE_CONTENTS);
 		createEAttribute(readoutEClass, READOUT__TOTAL_CONSUMPTION);
+		createEAttribute(readoutEClass, READOUT__EXPIRED);
 	}
 
 	/**
@@ -471,6 +491,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getMeter_Readouts(), this.getReadout(), this.getReadout_Meter(), "readouts", null, 0, -1, Meter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getMeter_Readouts().getEKeys().add(this.getReadout_Date());
 		initEReference(getMeter_SortedReadouts(), this.getReadout(), null, "sortedReadouts", null, 0, -1, Meter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMeter_ValueRetentionTime(), ecorePackage.getEInt(), "valueRetentionTime", "-1", 1, 1, Meter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = addEOperation(meterEClass, this.getReadout(), "getMostRecentReadouts", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "maxNumber", 1, 1, !IS_UNIQUE, !IS_ORDERED);
@@ -488,6 +509,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getReadout_Date(), ecorePackage.getEDate(), "date", null, 1, 1, Readout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getReadout_MessageContents(), ecorePackage.getEByteArray(), "messageContents", null, 1, 1, Readout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getReadout_TotalConsumption(), ecorePackage.getEBigDecimal(), "totalConsumption", null, 1, 1, Readout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReadout_Expired(), ecorePackage.getEBoolean(), "expired", null, 1, 1, Readout.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

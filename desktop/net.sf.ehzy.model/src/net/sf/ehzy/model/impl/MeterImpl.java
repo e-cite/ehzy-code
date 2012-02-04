@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link net.sf.ehzy.model.impl.MeterImpl#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link net.sf.ehzy.model.impl.MeterImpl#getReadouts <em>Readouts</em>}</li>
  *   <li>{@link net.sf.ehzy.model.impl.MeterImpl#getSortedReadouts <em>Sorted Readouts</em>}</li>
+ *   <li>{@link net.sf.ehzy.model.impl.MeterImpl#getValueRetentionTime <em>Value Retention Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -124,6 +125,26 @@ public class MeterImpl extends EObjectImpl implements Meter {
 	protected EList<Readout> readouts;
 
 	/**
+	 * The default value of the '{@link #getValueRetentionTime() <em>Value Retention Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueRetentionTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VALUE_RETENTION_TIME_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getValueRetentionTime() <em>Value Retention Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueRetentionTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected int valueRetentionTime = VALUE_RETENTION_TIME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -175,10 +196,10 @@ public class MeterImpl extends EObjectImpl implements Meter {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * @return the {@link NotificationChain} 
-	 * <!-- end-user-doc -->
 	 * @param newLocation 
 	 * @param msgs 
+	 * @return the {@link NotificationChain} 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetLocation(Location newLocation, NotificationChain msgs) {
@@ -289,6 +310,27 @@ public class MeterImpl extends EObjectImpl implements Meter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getValueRetentionTime() {
+		return valueRetentionTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueRetentionTime(int newValueRetentionTime) {
+		int oldValueRetentionTime = valueRetentionTime;
+		valueRetentionTime = newValueRetentionTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.METER__VALUE_RETENTION_TIME, oldValueRetentionTime, valueRetentionTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated and changed
 	 */
 	public EList<Readout> getMostRecentReadouts(int maxNumber) {
@@ -374,6 +416,8 @@ public class MeterImpl extends EObjectImpl implements Meter {
 				return getReadouts();
 			case ModelPackage.METER__SORTED_READOUTS:
 				return getSortedReadouts();
+			case ModelPackage.METER__VALUE_RETENTION_TIME:
+				return getValueRetentionTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -404,6 +448,9 @@ public class MeterImpl extends EObjectImpl implements Meter {
 				getReadouts().clear();
 				getReadouts().addAll((Collection<? extends Readout>)newValue);
 				return;
+			case ModelPackage.METER__VALUE_RETENTION_TIME:
+				setValueRetentionTime((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -431,6 +478,9 @@ public class MeterImpl extends EObjectImpl implements Meter {
 			case ModelPackage.METER__READOUTS:
 				getReadouts().clear();
 				return;
+			case ModelPackage.METER__VALUE_RETENTION_TIME:
+				setValueRetentionTime(VALUE_RETENTION_TIME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -457,6 +507,8 @@ public class MeterImpl extends EObjectImpl implements Meter {
 				return readouts != null && !readouts.isEmpty();
 			case ModelPackage.METER__SORTED_READOUTS:
 				return !getSortedReadouts().isEmpty();
+			case ModelPackage.METER__VALUE_RETENTION_TIME:
+				return valueRetentionTime != VALUE_RETENTION_TIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -475,6 +527,8 @@ public class MeterImpl extends EObjectImpl implements Meter {
 		result.append(deviceID);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", valueRetentionTime: ");
+		result.append(valueRetentionTime);
 		result.append(')');
 		return result.toString();
 	}

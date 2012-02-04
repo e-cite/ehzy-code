@@ -50,8 +50,8 @@ IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param adapterFactory 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public MeterItemProvider(AdapterFactory adapterFactory) {
@@ -73,6 +73,7 @@ IItemPropertySource {
 			addDescriptionPropertyDescriptor(object);
 			addLastReadoutDatePropertyDescriptor(object);
 			addSortedReadoutsPropertyDescriptor(object);
+			addValueRetentionTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,8 +81,8 @@ IItemPropertySource {
 	/**
 	 * This adds a property descriptor for the Device ID feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addDeviceIDPropertyDescriptor(Object object) {
@@ -103,8 +104,8 @@ IItemPropertySource {
 	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
@@ -126,8 +127,8 @@ IItemPropertySource {
 	/**
 	 * This adds a property descriptor for the Last Readout Date feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addLastReadoutDatePropertyDescriptor(Object object) {
@@ -149,8 +150,8 @@ IItemPropertySource {
 	/**
 	 * This adds a property descriptor for the Sorted Readouts feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addSortedReadoutsPropertyDescriptor(Object object) {
@@ -165,6 +166,29 @@ IItemPropertySource {
 				 false,
 				 false,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value Retention Time feature.
+	 * <!-- begin-user-doc -->
+	 * @param object 
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValueRetentionTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Meter_valueRetentionTime_feature"),
+				 getString("_UI_Meter_valueRetentionTime_description"),
+				 ModelPackage.Literals.METER__VALUE_RETENTION_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -247,6 +271,7 @@ IItemPropertySource {
 			case ModelPackage.METER__DESCRIPTION:
 			case ModelPackage.METER__LAST_READOUT_DATE:
 			case ModelPackage.METER__READOUTS:
+			case ModelPackage.METER__VALUE_RETENTION_TIME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.METER__RECIPIENTS:

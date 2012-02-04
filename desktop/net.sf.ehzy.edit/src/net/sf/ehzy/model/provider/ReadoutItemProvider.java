@@ -82,6 +82,7 @@ public class ReadoutItemProvider
 			addDatePropertyDescriptor(object);
 			addMessageContentsPropertyDescriptor(object);
 			addTotalConsumptionPropertyDescriptor(object);
+			addExpiredPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,8 +90,8 @@ public class ReadoutItemProvider
 	/**
 	 * This adds a property descriptor for the Date feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addDatePropertyDescriptor(Object object) {
@@ -112,8 +113,8 @@ public class ReadoutItemProvider
 	/**
 	 * This adds a property descriptor for the Message Contents feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addMessageContentsPropertyDescriptor(Object object) {
@@ -135,8 +136,8 @@ public class ReadoutItemProvider
 	/**
 	 * This adds a property descriptor for the Total Consumption feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addTotalConsumptionPropertyDescriptor(Object object) {
@@ -151,6 +152,29 @@ public class ReadoutItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Expired feature.
+	 * <!-- begin-user-doc -->
+	 * @param object 
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExpiredPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Readout_expired_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Readout_expired_feature", "_UI_Readout_type"),
+				 ModelPackage.Literals.READOUT__EXPIRED,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -196,6 +220,7 @@ public class ReadoutItemProvider
 			case ModelPackage.READOUT__DATE:
 			case ModelPackage.READOUT__MESSAGE_CONTENTS:
 			case ModelPackage.READOUT__TOTAL_CONSUMPTION:
+			case ModelPackage.READOUT__EXPIRED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

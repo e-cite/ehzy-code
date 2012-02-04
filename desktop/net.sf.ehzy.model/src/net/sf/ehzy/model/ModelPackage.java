@@ -211,13 +211,22 @@ public interface ModelPackage extends EPackage {
 	int METER__SORTED_READOUTS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Value Retention Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METER__VALUE_RETENTION_TIME = 7;
+
+	/**
 	 * The number of structural features of the '<em>Meter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METER_FEATURE_COUNT = 7;
+	int METER_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link net.sf.ehzy.model.impl.RecipientImpl <em>Recipient</em>}' class.
@@ -339,13 +348,22 @@ public interface ModelPackage extends EPackage {
 	int READOUT__TOTAL_CONSUMPTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Expired</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int READOUT__EXPIRED = 4;
+
+	/**
 	 * The number of structural features of the '<em>Readout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int READOUT_FEATURE_COUNT = 4;
+	int READOUT_FEATURE_COUNT = 5;
 
 
 	/**
@@ -500,6 +518,17 @@ public interface ModelPackage extends EPackage {
 	EReference getMeter_SortedReadouts();
 
 	/**
+	 * Returns the meta object for the attribute '{@link net.sf.ehzy.model.Meter#getValueRetentionTime <em>Value Retention Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Retention Time</em>'.
+	 * @see net.sf.ehzy.model.Meter#getValueRetentionTime()
+	 * @see #getMeter()
+	 * @generated
+	 */
+	EAttribute getMeter_ValueRetentionTime();
+
+	/**
 	 * Returns the meta object for class '{@link net.sf.ehzy.model.Recipient <em>Recipient</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -628,6 +657,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getReadout_TotalConsumption();
+
+	/**
+	 * Returns the meta object for the attribute '{@link net.sf.ehzy.model.Readout#isExpired <em>Expired</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expired</em>'.
+	 * @see net.sf.ehzy.model.Readout#isExpired()
+	 * @see #getReadout()
+	 * @generated
+	 */
+	EAttribute getReadout_Expired();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -770,6 +810,14 @@ public interface ModelPackage extends EPackage {
 		EReference METER__SORTED_READOUTS = eINSTANCE.getMeter_SortedReadouts();
 
 		/**
+		 * The meta object literal for the '<em><b>Value Retention Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METER__VALUE_RETENTION_TIME = eINSTANCE.getMeter_ValueRetentionTime();
+
+		/**
 		 * The meta object literal for the '{@link net.sf.ehzy.model.impl.RecipientImpl <em>Recipient</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -868,6 +916,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute READOUT__TOTAL_CONSUMPTION = eINSTANCE.getReadout_TotalConsumption();
+
+		/**
+		 * The meta object literal for the '<em><b>Expired</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute READOUT__EXPIRED = eINSTANCE.getReadout_Expired();
 
 	}
 

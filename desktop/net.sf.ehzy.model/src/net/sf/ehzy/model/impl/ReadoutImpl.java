@@ -11,6 +11,7 @@
 package net.sf.ehzy.model.impl;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 
 import net.sf.ehzy.model.Meter;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link net.sf.ehzy.model.impl.ReadoutImpl#getDate <em>Date</em>}</li>
  *   <li>{@link net.sf.ehzy.model.impl.ReadoutImpl#getMessageContents <em>Message Contents</em>}</li>
  *   <li>{@link net.sf.ehzy.model.impl.ReadoutImpl#getTotalConsumption <em>Total Consumption</em>}</li>
+ *   <li>{@link net.sf.ehzy.model.impl.ReadoutImpl#isExpired <em>Expired</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,16 @@ public class ReadoutImpl extends EObjectImpl implements Readout {
 	protected BigDecimal totalConsumption = TOTAL_CONSUMPTION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isExpired() <em>Expired</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExpired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EXPIRED_EDEFAULT = false;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -133,10 +145,10 @@ public class ReadoutImpl extends EObjectImpl implements Readout {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * @return the {@link NotificationChain} 
-	 * <!-- end-user-doc -->
 	 * @param newMeter 
 	 * @param msgs 
+	 * @return the {@link NotificationChain} 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetMeter(Meter newMeter, NotificationChain msgs) {
@@ -231,6 +243,21 @@ public class ReadoutImpl extends EObjectImpl implements Readout {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated and changed
+	 */
+	public boolean isExpired() {
+		int rt = (getMeter() == null) ? -1 : getMeter().getValueRetentionTime();
+		if (rt < 0) {
+			return false;
+		}
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, -rt);
+		return getDate().before(cal.getTime());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -288,6 +315,8 @@ public class ReadoutImpl extends EObjectImpl implements Readout {
 				return getMessageContents();
 			case ModelPackage.READOUT__TOTAL_CONSUMPTION:
 				return getTotalConsumption();
+			case ModelPackage.READOUT__EXPIRED:
+				return isExpired();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,6 +385,8 @@ public class ReadoutImpl extends EObjectImpl implements Readout {
 				return MESSAGE_CONTENTS_EDEFAULT == null ? messageContents != null : !MESSAGE_CONTENTS_EDEFAULT.equals(messageContents);
 			case ModelPackage.READOUT__TOTAL_CONSUMPTION:
 				return TOTAL_CONSUMPTION_EDEFAULT == null ? totalConsumption != null : !TOTAL_CONSUMPTION_EDEFAULT.equals(totalConsumption);
+			case ModelPackage.READOUT__EXPIRED:
+				return isExpired() != EXPIRED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

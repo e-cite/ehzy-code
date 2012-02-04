@@ -48,8 +48,8 @@ public class RecipientItemProvider
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param adapterFactory 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public RecipientItemProvider(AdapterFactory adapterFactory) {
@@ -79,8 +79,8 @@ public class RecipientItemProvider
 	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
@@ -102,8 +102,8 @@ public class RecipientItemProvider
 	/**
 	 * This adds a property descriptor for the Address feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addAddressPropertyDescriptor(Object object) {
@@ -125,8 +125,8 @@ public class RecipientItemProvider
 	/**
 	 * This adds a property descriptor for the Salutation feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addSalutationPropertyDescriptor(Object object) {
@@ -148,8 +148,8 @@ public class RecipientItemProvider
 	/**
 	 * This adds a property descriptor for the Last Message Date feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addLastMessageDatePropertyDescriptor(Object object) {
@@ -171,8 +171,8 @@ public class RecipientItemProvider
 	/**
 	 * This adds a property descriptor for the Updated Readouts Available feature.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param object 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addUpdatedReadoutsAvailablePropertyDescriptor(Object object) {

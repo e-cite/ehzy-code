@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link net.sf.ehzy.model.Meter#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link net.sf.ehzy.model.Meter#getReadouts <em>Readouts</em>}</li>
  *   <li>{@link net.sf.ehzy.model.Meter#getSortedReadouts <em>Sorted Readouts</em>}</li>
+ *   <li>{@link net.sf.ehzy.model.Meter#getValueRetentionTime <em>Value Retention Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -186,10 +187,37 @@ public interface Meter extends EObject {
 	EList<Readout> getSortedReadouts();
 
 	/**
+	 * Returns the value of the '<em><b>Value Retention Time</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Retention Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Retention Time</em>' attribute.
+	 * @see #setValueRetentionTime(int)
+	 * @see net.sf.ehzy.model.ModelPackage#getMeter_ValueRetentionTime()
+	 * @model default="-1" unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	int getValueRetentionTime();
+
+	/**
+	 * Sets the value of the '{@link net.sf.ehzy.model.Meter#getValueRetentionTime <em>Value Retention Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Retention Time</em>' attribute.
+	 * @see #getValueRetentionTime()
+	 * @generated
+	 */
+	void setValueRetentionTime(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * @param maxNumber 
 	 * @return a list containing the most recent up to maxNumber Readouts  
 	 * <!-- end-user-doc -->
-	 * @param maxNumber 
 	 * @model maxNumberUnique="false" maxNumberRequired="true" maxNumberOrdered="false"
 	 * @generated
 	 */

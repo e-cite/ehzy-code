@@ -28,6 +28,8 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference eHZy.ecore#//Meter/readouts"/>
       <genFeatures property="Readonly" notify="false" children="true" createChild="false"
           ecoreFeature="ecore:EReference eHZy.ecore#//Meter/sortedReadouts"/>
+      <genFeatures createChild="false" propertyCategory="" propertyDescription="The number of days for which a single value is kept."
+          ecoreFeature="ecore:EAttribute eHZy.ecore#//Meter/valueRetentionTime"/>
       <genOperations ecoreOperation="eHZy.ecore#//Meter/getMostRecentReadouts">
         <genParameters ecoreParameter="eHZy.ecore#//Meter/getMostRecentReadouts/maxNumber"/>
       </genOperations>
@@ -45,6 +47,7 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Readout/date"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Readout/messageContents"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Readout/totalConsumption"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eHZy.ecore#//Readout/expired"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

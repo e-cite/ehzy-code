@@ -138,10 +138,10 @@ public class LocationImpl extends EObjectImpl implements Location {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * @return the {@link NotificationChain} 
-	 * <!-- end-user-doc -->
 	 * @param newProject 
 	 * @param msgs 
+	 * @return the {@link NotificationChain} 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetProject(Project newProject, NotificationChain msgs) {

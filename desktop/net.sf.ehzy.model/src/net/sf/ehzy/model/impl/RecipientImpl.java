@@ -248,10 +248,10 @@ public class RecipientImpl extends EObjectImpl implements Recipient {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * @return the {@link NotificationChain} 
-	 * <!-- end-user-doc -->
 	 * @param newMeter 
 	 * @param msgs 
+	 * @return the {@link NotificationChain} 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetMeter(Meter newMeter, NotificationChain msgs) {

@@ -29,6 +29,10 @@ public class Messages extends NLS {
 	public static String EHZyModelWizard_OverwriteFileConfirmationText;
 	public static String EHZyModelWizard_QuestionDialogTitle;
 	public static String EHZyModelWizard_WindowTitle;
+	public static String ExpireReadoutsHandler_ExpirationConfirmationPrompt;
+	public static String ExpireReadoutsHandler_MessageDialogTitle;
+	public static String ExpireReadoutsHandler_NoModelEditorMessage;
+	public static String ExpireReadoutsHandler_NoReadoutsFoundMessage;
 	public static String ImportSMLHandler_CompletionMessage;
 	public static String ImportSMLHandler_DecodeError;
 	public static String ImportSMLHandler_FatalErrorMessage;

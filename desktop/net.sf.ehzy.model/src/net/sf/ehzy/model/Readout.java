@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link net.sf.ehzy.model.Readout#getDate <em>Date</em>}</li>
  *   <li>{@link net.sf.ehzy.model.Readout#getMessageContents <em>Message Contents</em>}</li>
  *   <li>{@link net.sf.ehzy.model.Readout#getTotalConsumption <em>Total Consumption</em>}</li>
+ *   <li>{@link net.sf.ehzy.model.Readout#isExpired <em>Expired</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,5 +142,20 @@ public interface Readout extends EObject {
 	 * @generated
 	 */
 	void setTotalConsumption(BigDecimal value);
+
+	/**
+	 * Returns the value of the '<em><b>Expired</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expired</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expired</em>' attribute.
+	 * @see net.sf.ehzy.model.ModelPackage#getReadout_Expired()
+	 * @model unique="false" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @generated
+	 */
+	boolean isExpired();
 
 } // Readout

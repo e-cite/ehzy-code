@@ -23,10 +23,10 @@ import org.eclipse.jface.preference.IPreferenceStore;
 public class PreferenceInitializer extends AbstractPreferenceInitializer {
 
 	/**
-	 * TODO Write documentation.
+	 * Default constructor.
 	 */
 	public PreferenceInitializer() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	/* (non-Javadoc)

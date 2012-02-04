@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.util.Switch;
  * and proceeding up the inheritance hierarchy
  * until a non-null result is returned,
  * which is the result of the switch.
- * <!-- end-user-doc -->
  * @param <T> 
+ * <!-- end-user-doc -->
  * @see net.sf.ehzy.model.ModelPackage
  * @generated
  */

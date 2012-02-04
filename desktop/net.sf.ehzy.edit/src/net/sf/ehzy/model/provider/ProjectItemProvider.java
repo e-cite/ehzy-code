@@ -48,8 +48,8 @@ public class ProjectItemProvider
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @param adapterFactory 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ProjectItemProvider(AdapterFactory adapterFactory) {

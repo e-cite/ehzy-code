@@ -43,6 +43,11 @@
             id="net.sf.ehzy.editor.SendMessageCommand"
             name="%SendMessageCommand.name">
       </command>
+      <command
+            description="%ExpireReadoutsCommand.description"
+            id="net.sf.ehzy.editor.ExpireReadoutsCommand"
+            name="%ExpireReadoutsCommand.name">
+      </command>
    </extension>
 
    <extension point="org.eclipse.ui.bindings">
@@ -98,6 +103,10 @@
             class="net.sf.ehzy.editor.SendMessageHandler"
             commandId="net.sf.ehzy.editor.SendMessageCommand">
       </handler>
+      <handler
+            class="net.sf.ehzy.editor.ExpireReadoutsHandler"
+            commandId="net.sf.ehzy.editor.ExpireReadoutsCommand">
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -125,6 +134,10 @@
                   </instanceof>
                </iterate>
             </visibleWhen>
+         </command>
+         <command
+               commandId="net.sf.ehzy.editor.ExpireReadoutsCommand"
+               style="push">
          </command>
       </menuContribution>
       <menuContribution
