@@ -35,8 +35,8 @@ public class HexUtil {
 			int v = data[i] & 0xff;
 			buf.append(HEX_DIGITS.charAt(v >> 4));
 			buf.append(HEX_DIGITS.charAt(v & 0xf));
-			if (groupSize > 0) {
-				if (((i % groupSize) != 0) && (i < data.length - 1)) {
+			if ((groupSize > 0) && (i < data.length - 1)) {
+				if ((groupSize == 1) || ((i % groupSize) != 0)) {
 					buf.append("-"); //$NON-NLS-1$
 				}
 			}

@@ -119,7 +119,7 @@ public class ImportSMLHandler extends AbstractHandler {
 				try {
 					statuses[i] = importFile(fileName);
 				} catch (Throwable t) {
-					statuses[i] = new Status(IStatus.ERROR, EHZyEditorPlugin.PLUGIN_ID, MessageFormat.format(Messages.ImportSMLHandler_FileMessagePattern, fileName, t.getLocalizedMessage()));
+					statuses[i] = new Status(IStatus.ERROR, EHZyEditorPlugin.PLUGIN_ID, MessageFormat.format(Messages.ImportSMLHandler_FileMessagePattern, fileName, t.getMessage()));
 				} finally {
 					i++;
 					monitor.worked(1);
@@ -219,7 +219,7 @@ public class ImportSMLHandler extends AbstractHandler {
 			readout.setMessageContents(messageContents);
 			readout.setDate(readoutDate);
 			for (SML_ListEntry entry: getListResMessage.getValList().getValListEntry()) {
-				final String objectID = HexUtil.toHexString(entry.getObjName().getOctetString());
+				final String objectID = HexUtil.toHexString(entry.getObjName().getOctetString(), 1);
 				if (objectID.equals(valueObjectID)) { 
 					BigDecimal value = convertValueToBigDecimal(entry.getValue().getChoice());
 					BigDecimal unitScaler = null;
