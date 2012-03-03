@@ -88,7 +88,7 @@ public class MailGenerator {
 		// assemble the CSV file 
 		StringBuilder sb = new StringBuilder();
 		for (Readout r: readouts) {
-			sb.append(MessageFormat.format("{0};{1}\n", dateFormat.format(r.getDate()), r.getTotalConsumption().toPlainString())); //$NON-NLS-1$
+			sb.append(MessageFormat.format("{0};{1}\n", dateFormat.format(r.getDate()), DecimalFormat.getNumberInstance().format(r.getTotalConsumption()))); //$NON-NLS-1$
 		}
 		
 		// expand the header and subject templates
