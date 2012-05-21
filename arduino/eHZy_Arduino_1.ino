@@ -285,13 +285,13 @@ void writeBufferToFile(int messageLength) {
  * isValidHeader - returns true if the global message buffer begins with a valid SML escape sequence.
  */
 inline boolean isValidHeader() {
-  return ((buffer[0] == 0x1b) ||
-          (buffer[1] == 0x1b) ||
-          (buffer[2] == 0x1b) ||
-          (buffer[3] == 0x1b) ||
-          (buffer[4] == 0x01) ||
-          (buffer[5] == 0x01) ||
-          (buffer[6] == 0x01) ||
+  return ((buffer[0] == 0x1b) &&
+          (buffer[1] == 0x1b) &&
+          (buffer[2] == 0x1b) &&
+          (buffer[3] == 0x1b) &&
+          (buffer[4] == 0x01) &&
+          (buffer[5] == 0x01) &&
+          (buffer[6] == 0x01) &&
           (buffer[7] == 0x01));
 }
 
