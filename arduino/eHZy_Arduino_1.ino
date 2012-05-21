@@ -22,11 +22,13 @@
 /**
  * hardware pin assignments - modify this if you change the hardware layout
  */
-#define IR_RX_PIN  7
-#define IR_TX_PIN  6 // not used, but required for SoftwareSerial
-#define PIEZO_PIN  5
-#define SD_CS_PIN  4
-#define SD_SS_PIN 10
+#define IR_RX_PIN     7
+#define IR_TX_PIN     6 // not used, but required for SoftwareSerial
+#define PIEZO_PIN     5
+#define SD_CS_PIN     4
+#define SD_SS_PIN    10
+#define DUMMY_RX_PIN  8
+#define DUMMY_TX_PIN  9
 
 /**
  * error codes (= numbers of error beeps)
@@ -139,6 +141,7 @@ PROGMEM const char *msgTextTable[] = {
  * instance of the SoftwareSerial library to handle the IR communication
  */
 SoftwareSerial mySerial(IR_RX_PIN, IR_TX_PIN);
+SoftwareSerial dummySerial(DUMMY_RX_PIN, DUMMY_TX_PIN);
 
 /**
  * variables to keep track of the name of the next file to be written
@@ -309,6 +312,8 @@ void setup() {
   pinMode(IR_TX_PIN, OUTPUT);
   pinMode(PIEZO_PIN, OUTPUT);
   pinMode(SD_SS_PIN, OUTPUT);
+  pinMode(DUMMY_RX_PIN, INPUT);
+  pinMode(DUMMY_TX_PIN, OUTPUT);
 
   // initialize the SD card library and check whether a card is available
   printMessage(MSG_INIT_SD_CARD);
@@ -319,6 +324,7 @@ void setup() {
   }
 
   // initialize the SoftwareSerial libary used to receive the IR data
+  dummySerial.begin(9600);
   mySerial.begin(9600);
   
   // determine the first file name to use
@@ -356,6 +362,7 @@ void loop() {
       buffer[nextBufferPosition] = mySerial.read();
       lastReadTime = millis();
       if (nextBufferPosition >= SML_MSG_BUFFER_SIZE) {
+        dummySerial.listen(); // disable further IR input
         printMessage(MSG_BUFFER_OVERFLOW);
         errorSound(ERR_BUFFER_OVERFLOW);
         return;
@@ -367,9 +374,11 @@ void loop() {
   // report an error if an overflow condition was encountered - the data received is useless
   // in this case :-(
   if (mySerial.overflow()) {
+    dummySerial.listen(); // disable further IR input
     printMessage(MSG_SERIAL_OVERFLOW);
     errorSound(ERR_SERIAL_OVERFLOW);
   } else {
+    dummySerial.listen(); // disable further IR input
     // check the header
     printMessage(MSG_NUM_BYTES_READ, nextBufferPosition + 1);
     if (!isValidHeader()) {
