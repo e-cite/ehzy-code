@@ -38,6 +38,8 @@
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="javax.mail" version="1.4.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
+      <import feature="org.eclipse.rcp" version="4.4.2.v20150204-1700"/>
+      <import plugin="net.sf.ehzy.preferences" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
