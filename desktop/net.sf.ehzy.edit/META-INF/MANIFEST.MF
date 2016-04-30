@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.sf.ehzy.edit;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: net.sf.ehzy.model.provider.EHZyEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -12,5 +12,5 @@ Export-Package: net.sf.ehzy.model.provider
 Require-Bundle: org.eclipse.core.runtime,
  net.sf.ehzy.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
- net.sf.ehzy.preferences;bundle-version="1.0.0"
+ net.sf.ehzy.preferences;bundle-version="1.0.1"
 Bundle-ActivationPolicy: lazy

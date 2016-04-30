@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="eHZy" uid="net.sf.ehzy.product" application="net.sf.ehzy.editor.EHZyEditorAdvisorApplication" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="eHZy" uid="net.sf.ehzy.product" application="net.sf.ehzy.editor.EHZyEditorAdvisorApplication" version="1.0.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -23,7 +23,7 @@
    </vm>
 
    <features>
-      <feature id="net.sf.ehzy.feature" version="1.0.0.qualifier"/>
+      <feature id="net.sf.ehzy.feature" version="1.0.1.qualifier"/>
       <feature id="org.openmuc.jsml.feature" version="1.0.17"/>
       <feature id="org.eclipse.rcp" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
    </features>
