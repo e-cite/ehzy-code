@@ -37,7 +37,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		IPreferenceStore store = Activator.getInstance().getPreferenceStore();
 		
 		store.setDefault(PreferenceConstants.DATE_FORMAT, Messages.PreferenceInitializer_DefaultDateFormat); // TODO externalize this
-		store.setDefault(PreferenceConstants.VALUE_OBJECT_ID, "0100010800FF"); //$NON-NLS-1$
+		store.setDefault(PreferenceConstants.VALUE_OBJECT_ID, "01-00-01-08-00-FF"); //$NON-NLS-1$
 		
 		store.setDefault(PreferenceConstants.SMTP_PORT, 25);
 		
