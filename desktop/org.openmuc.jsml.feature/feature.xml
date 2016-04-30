@@ -2,7 +2,7 @@
 <feature
       id="org.openmuc.jsml.feature"
       label="jSML Feature"
-      version="1.0.12"
+      version="1.0.17"
       provider-name="http://www.openmuc.org">
 
    <description url="http://www.openmuc.org/index.php?id=21">
@@ -28,6 +28,6 @@ You should have received a copy of the GNU Lesser General Public License along w
          id="org.openmuc.jsml"
          download-size="0"
          install-size="0"
-         version="1.0.12"/>
+         version="1.0.17"/>
 
 </feature>

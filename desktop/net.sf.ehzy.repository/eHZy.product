@@ -24,7 +24,7 @@
 
    <features>
       <feature id="net.sf.ehzy.feature" version="1.0.0.qualifier"/>
-      <feature id="org.openmuc.jsml.feature" version="1.0.12"/>
+      <feature id="org.openmuc.jsml.feature" version="1.0.17"/>
       <feature id="org.eclipse.rcp" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
    </features>
 

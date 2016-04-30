@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.openmuc.jsml
-Bundle-Version: 1.0.12
-Bundle-ClassPath: jsml-1.0.12.jar
+Bundle-Version: 1.0.17
+Bundle-ClassPath: jsml-1.0.17.jar
 Export-Package: org.openmuc.jsml.structures,
  org.openmuc.jsml.tl
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
