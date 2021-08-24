@@ -98,25 +98,25 @@
  * actual message texts - caution, adapt MAX_MESSAGE_LENGTH if required!
  *                               ....+....1....+....2....+....3....+....4....+....5
  */
-prog_char msgText00[] PROGMEM = "Program stopped.";
-prog_char msgText01[] PROGMEM = "Next output file name is '%s'";
-prog_char msgText02[] PROGMEM = "No more file names left";
-prog_char msgText03[] PROGMEM = "Initializing Hardware...";
-prog_char msgText04[] PROGMEM = "Initializing SD Card...";
-prog_char msgText05[] PROGMEM = "SD Card initialization failed";
-prog_char msgText06[] PROGMEM = "Read byte %02hhu from IR receiver";
-prog_char msgText07[] PROGMEM = "Message buffer overflow";
-prog_char msgText08[] PROGMEM = "Serial buffer overflow";
-prog_char msgText09[] PROGMEM = "Invalid escape sequence";
-prog_char msgText10[] PROGMEM = "Unable to open output file";
-prog_char msgText11[] PROGMEM = "%u bytes of data written to file '%s'";
-prog_char msgText12[] PROGMEM = "%u bytes of memory available";
-prog_char msgText13[] PROGMEM = "%u bytes read";
+const char msgText00[] PROGMEM = "Program stopped.";
+const char msgText01[] PROGMEM = "Next output file name is '%s'";
+const char msgText02[] PROGMEM = "No more file names left";
+const char msgText03[] PROGMEM = "Initializing Hardware...";
+const char msgText04[] PROGMEM = "Initializing SD Card...";
+const char msgText05[] PROGMEM = "SD Card initialization failed";
+const char msgText06[] PROGMEM = "Read byte %02hhu from IR receiver";
+const char msgText07[] PROGMEM = "Message buffer overflow";
+const char msgText08[] PROGMEM = "Serial buffer overflow";
+const char msgText09[] PROGMEM = "Invalid escape sequence";
+const char msgText10[] PROGMEM = "Unable to open output file";
+const char msgText11[] PROGMEM = "%u bytes of data written to file '%s'";
+const char msgText12[] PROGMEM = "%u bytes of memory available";
+const char msgText13[] PROGMEM = "%u bytes read";
 
 /**
  * table for easier access to the message texts
  */
-PROGMEM const char *msgTextTable[] = {   
+const char * const msgTextTable[] PROGMEM = {   
   msgText00,
   msgText01,
   msgText02,
@@ -394,4 +394,3 @@ void loop() {
     }
   }
 }
-
