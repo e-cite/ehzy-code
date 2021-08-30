@@ -26,7 +26,7 @@
 #define IR_TX_PIN     6 // not used, but required for SoftwareSerial
 #define PIEZO_PIN     5
 #define SD_CS_PIN     4
-#define SD_SS_PIN    10
+#define SD_SS_PIN     3
 #define DUMMY_RX_PIN  8
 #define DUMMY_TX_PIN  9
 
