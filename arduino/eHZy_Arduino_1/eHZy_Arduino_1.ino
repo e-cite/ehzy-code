@@ -7,7 +7,7 @@
  * 
  * Contributors: 
  *   Volker Wegert - initial implementation
- *
+ *   
  */
 #include <stdarg.h>
 #include <stdio.h>
@@ -22,9 +22,10 @@
 /**
  * hardware pin assignments - modify this if you change the hardware layout
  */
-#define IR_RX_PIN     7
-#define IR_TX_PIN     6 // not used, but required for SoftwareSerial
-#define PIEZO_PIN     5
+#define IR_LED_PIN    5 // TXD1 // Will just be disabled
+#define IR_RX_PIN     6 // RXD1
+#define IR_TX_PIN     7 // not used, but required for SoftwareSerial
+#define PIEZO_PIN     2
 #define SD_CS_PIN     4
 #define SD_SS_PIN     3
 #define DUMMY_RX_PIN  8
@@ -308,6 +309,7 @@ void setup() {
   
   // set the pin configuration
   printMessage(MSG_INIT_HARDWARE);
+  pinMode(IR_LED_PIN, OUTPUT);
   pinMode(IR_RX_PIN, INPUT);
   pinMode(IR_TX_PIN, OUTPUT);
   pinMode(PIEZO_PIN, OUTPUT);
@@ -315,6 +317,7 @@ void setup() {
   pinMode(DUMMY_RX_PIN, INPUT);
   pinMode(DUMMY_TX_PIN, OUTPUT);
 
+  digitalWrite(IR_LED_PIN, LOW);
   // initialize the SD card library and check whether a card is available
   printMessage(MSG_INIT_SD_CARD);
   if (!SD.begin(SD_CS_PIN)) {
